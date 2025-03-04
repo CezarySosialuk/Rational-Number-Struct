@@ -5,12 +5,11 @@
         static void Main(string[] args)
         {
             Rational bap = new Rational(7, 10);
-            Console.WriteLine(bap.Numerator);
-            Console.WriteLine(bap.Denominator);
+            Console.WriteLine(bap.To_String());
         }
         public struct Rational
         {
-            public int Numerator, Denominator;
+            int Numerator, Denominator;
             public Rational(int a, int b)
             {
                 if (b != 0)
@@ -24,6 +23,11 @@
                 {
                     throw new ArgumentException();
                 }
+            }
+            public string To_String()
+            {
+                string temp = this.Numerator.ToString() + "/" + this.Denominator.ToString();
+                return temp;
             }
         };
         static int GCD(int a, int b)
